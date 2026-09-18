@@ -323,6 +323,11 @@ python -m streamlit run app/fraud_shield_app.py
 - Lets the user pick a real sample transaction (known fraud or known legit) from the test set, or generate a random one.
 - Scores the transaction and returns a clear verdict: **🚫 flagged and blocked** or **✅ delivered normally** — the same decision a real fraud-screening layer would make automatically, before the customer ever sees the transaction.
 
+🖥️ App in Action
+<table> <tr> <td align="center" width="33%"> <img src="outputs/app_flagged_fraud.png" /><br/> <sub><b>Known fraud correctly flagged</b><br/>98.9% fraud probability</sub> </td> <td align="center" width="33%"> <img src="outputs/app_safe_legit.png" /><br/> <sub><b>Known legit transaction passed</b><br/>1.6% fraud probability</sub> </td> <td align="center" width="33%"> <img src="outputs/app_random_transaction.png" /><br/> <sub><b>Randomly generated transaction</b><br/>15.1% — below threshold, no ground truth</sub> </td> </tr> </table>
+
+Both sample-transaction checks matched their known ground-truth labels, and the random transaction (no label to compare against) was correctly left unflagged at 15.1% — well under the 0.35 operating threshold.
+
 ---
 
 ## 💼 Business Impact
